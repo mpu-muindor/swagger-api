@@ -34,6 +34,7 @@ paths:
                 description: JWT
         '401':
           $ref: '#/components/responses/UnauthResponse'
+      security: []
   /user:
     post:
       summary: Возвращает основные данные авторизованного пользователя
@@ -186,6 +187,11 @@ components:
         id:
           format: uuid
           type: string
+        type:
+          type: string
+          enum:
+            - professor
+            - student
         first_name:
           type: string
         middle_name:
@@ -203,8 +209,10 @@ components:
           type: string
         phone:
           type: string
+          nullable: true
         about:
           type: string
+          nullable: true
 
 security:
   - bearerAuth: []

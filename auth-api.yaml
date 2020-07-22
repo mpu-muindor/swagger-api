@@ -9,6 +9,20 @@ paths:
   /auth/login:
     post:
       summary: Возвращает JWT токен авторизации для клиента.
+      parameters:
+        - name: login
+          description: Login
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: password
+          description: Пароль
+          in: query
+          required: true
+          schema:
+            type: string
+            format: password
       responses:
         '200':
           description: OK
@@ -17,13 +31,15 @@ paths:
               schema:
                 format: jwt
                 type: string
+                description: JWT
         '401':
           $ref: '#/components/responses/UnauthResponse'
   /user:
     post:
+      summary: Возвращает основные данные авторизованного пользователя
       responses:
         200:
-          description: Возвращает основные данные авторизованного пользователя
+          description: ОК
           content:
             application/json:
               schema:
@@ -32,26 +48,32 @@ paths:
           $ref: '#/components/responses/UnauthResponse'
   /user/professor:
     post:
+      summary: Возвращает данные преподавателя
       responses:
         200:
-          description: Возвращает данные преподавателя
+          description: ОК
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Professor'
-        '401':
+        401:
           $ref: '#/components/responses/UnauthResponse'
         403:
           $ref: '#/components/responses/ForbiddenResponse'
   /user/student:
     post:
+      summary: Возвращает данные студента
       responses:
         200:
-          description: Возвращает данные студента
+          description: ОК
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Student'
+        401:
+          $ref: '#/components/responses/UnauthResponse'
+        403:
+          $ref: '#/components/responses/ForbiddenResponse'
 
 
 components:

@@ -37,9 +37,11 @@
     <script src="dist/swagger-ui-standalone-preset.js"> </script>
     <script>
     window.onload = function() {
+      let params = new URLSearchParams(document.location.search.substring(1));
+      let name = params.get("file");
       // Begin Swagger UI call region
       const ui = SwaggerUIBundle({
-        url: "swagger.yaml",
+        url: name ? name : "swagger.yaml",
         dom_id: '#swagger-ui',
         deepLinking: true,
         presets: [

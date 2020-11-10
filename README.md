@@ -1,3 +1,9 @@
+# Ссылки
+
+1. [Auth](https://mpu-muindor.github.io/swagger-api/?file=auth-api.yaml)
+2. [Rating](https://mpu-muindor.github.io/swagger-api/?file=mpu-rating-service.yaml)
+3. [Statements](https://mpu-muindor.github.io/swagger-api/?file=api-statements.yaml)
+
 # How to host Swagger API documentation with GitHub Pages
 [<img alt="The blog of Peter Evans: How to Host Swagger Documentation With Github Pages" title="View blog post" src="https://peterevans.dev/img/blog-published-badge.svg">](https://peterevans.dev/posts/how-to-host-swagger-docs-with-github-pages/)
 
